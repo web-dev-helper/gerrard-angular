@@ -1,11 +1,25 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Hee real estate</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#" routerLink="/">Home</a></li>
-            <li><a href="#" routerLink="/dash-board">Board</a></li>
-            <li><a href="#" routerLink="/register">Register</a></li>
-            <li><a href="#" routerLink="/login">Login</a></li>
-        </ul>
+<header class="header-6">
+    <div class="branding">
+        <a href="..." class="nav-link">
+            <clr-icon shape="world"></clr-icon>
+            <span class="title">Agent Hee</span>
+        </a>
     </div>
-</nav>
+    <div class="header-nav">
+        <a href="#" routerLink="/" class="active nav-link"><span class="nav-text">Home</span></a>
+        <a href="#" routerLink="/dash-board" class="nav-link"><span class="nav-text">Dashboard</span></a>
+        <a href="#" routerLink="/about" class="nav-link"><span class="nav-text">About</span></a>
+    </div>
+    <div class="header-actions">
+        <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger>
+                <clr-icon shape="user"></clr-icon>
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a href="#" routerLink="/register" clrDropdownItem>Resister</a>
+                <a href="#" routerLink="/login" clrDropdownItem>Log in</a>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+    </div>
+</header>

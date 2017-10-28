@@ -9,12 +9,14 @@ import { HomeComponent } from './components/home/home.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'dash-board', component: DashBoardComponent}
+  {path: 'dash-board', component: DashBoardComponent},
+  {path: 'about', component: AboutComponent}
 ]
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     HomeComponent,
     DashBoardComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
