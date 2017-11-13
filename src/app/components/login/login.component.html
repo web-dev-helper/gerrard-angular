@@ -1,24 +1,47 @@
 <div class="login-wrapper">
-    <form class="login" (submit)="onSubmit()">
+    <form [formGroup]="loginForm" class="login" (submit)="onSubmit(loginForm.value)" novalidate>
         <label class="title">
           <h3 class="welcome">Welcome to</h3>
           Hee's Real Estate
           <h5 class="hint">Use your email to sign in or create one now</h5>
-      </label>
+        </label>
         <div class="login-group">
-            <input class="username" type="text" id="login_username" [(ngModel)]="login_username" name="login_username" placeholder="Email">
-            <input class="password" type="password" id="login_password" [(ngModel)]="login_password" name="login_password" placeholder="Password">
+            <input class="username" type="text" formControlName="username" required placeholder="Email">
+            <div class="alert alert-danger alert-sm" *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+                <div class="alert-items">
+                    <div class="alert-item static">
+                        <div class="alert-icon-wrapper">
+                            <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                        </div>
+                        <span class="alert-text">
+                            Email is required.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <input class="password" type="password" formControlName="password" placeholder="Password">
+            <div class="alert alert-danger alert-sm" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                <div class="alert-items">
+                    <div class="alert-item static">
+                        <div class="alert-icon-wrapper">
+                            <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                        </div>
+                        <span class="alert-text">
+                            Password is required.
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="checkbox">
                 <input type="checkbox" id="rememberme">
                 <label for="rememberme">
                   Remember me
               </label>
             </div>
-            <div class="error inactive">
-                Invalid user name or password
-            </div>
             <button type="submit" class="btn btn-primary">LOG IN</button>
             <a href="javascript://" class="signup">Sign up</a>
         </div>
+        <p>Form value: {{ loginForm.value | json }}</p>
+        <p>Form status: {{ loginForm.status | json }}</p>
     </form>
 </div>
